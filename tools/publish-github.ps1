@@ -152,7 +152,7 @@ E5 随身 WiFi 信息屏 · Clash 面板
 
 装前会自动备份到 /root/e5-panel-backups/，不会动 /etc/e5-infoscreen 和 /etc/config。
 "@
-        $body = @{ tag_name = $tag; name = "v1.0.0 + Clash面板"; body = $notes; draft = $false; prerelease = $false }
+        $body = @{ tag_name = $tag; name = "v1.0.0 — E5 信息屏 Clash 面板"; body = $notes; draft = $false; prerelease = $false }
         $releaseId = (Invoke-GitHub 'POST' "$api/repos/$owner/$Repo/releases" $body).id
         Ok "Release $tag 已创建"
     }
