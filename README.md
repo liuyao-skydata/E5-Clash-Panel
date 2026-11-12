@@ -8,6 +8,8 @@
 
 ![面板截图](docs/screenshots/clash-panel-demo.png)
 
+<sub>截图中的节点、配置、流量与出口 IP 均为示例值（IP 取自文档保留段 203.0.113.x / 198.51.100.x）。</sub>
+
 **[⬇ 直接下载安装包](https://github.com/liuyao-skydata/E5-Clash-Panel/releases/latest)** ·
 [安装说明](https://github.com/liuyao-skydata/E5-Clash-Panel#安装) ·
 [技术说明](docs/技术说明.md)
