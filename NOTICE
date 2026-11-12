@@ -1,0 +1,37 @@
+# 第三方组件说明
+
+`release/e5-panel-*.tar.gz`（以及内嵌在 `release/e5-panel-install.sh` 里的载荷）
+包含下列第三方作品，均为可再分发许可：
+
+## 1. 信息屏（e5-infoscreen / t551m 适配）
+
+- 版权：Copyright (c) 2026 Enceka <enceka@yeah.net>
+- 许可：MIT（原文见载荷内 `/usr/share/e5-infoscreen/LICENSE.t551m`，装机后会保留在原处）
+- 用途：整个信息屏前端（`www/`）、后端 `api.uc`、`settings.uc`、`updates.uc`、
+  服务脚本 `init.d/e5-infoscreen`、`libexec/e5-infoscreen/*`、LuCI 页面与菜单。
+- 本仓库在其基础上新增/修改：
+
+  | 文件 | 改动 |
+  |---|---|
+  | `www/app.js`、`www/mobile.js`、`www/style.css`、`www/index.html` | 新增 Clash 面板页（第 10 页），页面标题改为「Clash面板」 |
+  | `api.uc` | 新增 `/api/clash-net`、`/api/clash-ip` 路由与缓存 |
+  | `/usr/libexec/e5-clash-status` | 新增：Clash 状态 / 延迟 / 订阅 / IP 采集（ucode） |
+  | `libexec/e5-infoscreen/session` | 补充 `TZ` 导出（WebKit 只认 tz 文件） |
+  | `/usr/share/zoneinfo/Asia/Shanghai` | 新增：115 字节 TZif |
+
+## 2. 国旗图标（twemoji）
+
+- 项目：https://github.com/jdecked/twemoji
+- 许可：图形 CC-BY 4.0，代码 MIT
+- 用途：`www/flags/*.svg`（257 个，两字母 ISO 国家码命名）
+
+## 3. 字体
+
+安装包**不含**任何字体。设备上的 CJK 字体由镜像自带的 Noto Sans CJK
+（`/mnt/e5-disk/usr/share/fonts/opentype/noto`）在服务启动时 bind mount 到
+`/usr/share/fonts/e5-noto`。
+
+## 4. OpenClash / Clash
+
+本仓库不包含 OpenClash 与 Clash 内核，只读取它们的本地 HTTP API
+（`127.0.0.1:9090`）与 uci 配置（`/etc/config/openclash`）。
