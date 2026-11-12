@@ -98,6 +98,10 @@ sh /tmp/e5-panel-install.sh --help
 **不会碰**：`/etc/e5-infoscreen/`（壁纸、已装插件）、`/etc/config/e5-infoscreen`（你的设置）。
 全新安装时才把 `default.config` 铺成 `/etc/config/e5-infoscreen`。
 
+**只带这一个功能**：载荷 = 信息屏底座（Enceka 上游：`app.js` / `mobile.js` / `calls.js` / `apn.js` / `power-menu.js` / `transport.js` / `flags` / 语言与时区）+ Clash 面板。
+与面板无关的其它项目文件**没有**打进去：短信发送与回复（`reply.js`）、输入法词库（`ime-learn.js`）、投屏页（`mirror.html`）以及设备实拍截图（`shot.png`）。
+插件目录 `www/plugins` 也不带，服务启动时由 `plugin link` 按设备上已装的插件重建。
+
 ## 自己重新打包
 
 `release/` 里就是成品；要改文案或页面后重新出包：
@@ -136,3 +140,4 @@ cd ../release && sha256sum e5-panel-install.sh e5-panel-*.tar.gz > SHA256SUMS
 - 停止后不再多显示一行「Clash / 未运行」：状态行已写「已停止」、按钮已变「启动」，四站卡与节点/配置区随之上移
 - 修复 WebKit 时区（补 `Asia/Shanghai` TZif + `session` 导出 `TZ`）
 - 信息屏页面标题统一为「Clash面板」
+- 安装包收紧为「信息屏底座 + Clash 面板」，剔除与本功能无关的其它项目文件（303 个条目，438 KB 载荷）
