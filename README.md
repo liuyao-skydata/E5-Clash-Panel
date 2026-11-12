@@ -133,5 +133,6 @@ cd ../release && sha256sum e5-panel-install.sh e5-panel-*.tar.gz > SHA256SUMS
 
 **v1.0.0**（2026-11-12）
 - 新增 Clash 面板：状态/启停、四站实时延迟折线、节点切换与测速、配置切换、订阅额度、出口 IP 四卡
+- 停止后不再多显示一行「Clash / 未运行」：状态行已写「已停止」、按钮已变「启动」，四站卡与节点/配置区随之上移
 - 修复 WebKit 时区（补 `Asia/Shanghai` TZif + `session` 导出 `TZ`）
 - 信息屏页面标题统一为「Clash面板」
